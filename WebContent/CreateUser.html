@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="loginCreate.css">
+<meta charset="ISO-8859-1">
+<title>Login</title>
+</head>
+<body>
+
+ <div>
+	<h1>Create an Account:</h1>
+	<form method="post" action="/WebTicketApp/CreateUser">
+	      <div>
+	    <label for="username">Username:<span class="required"></span> </label>
+	    <input type="text" id="username" name="username" value="" placeholder="Username" required="required" maxlength="60" />
+	  </div>
+
+	  <div>
+	    <label for="password">Password:&nbsp;<span class="required"></span> </label>
+	    <input type="password" id="password" name="password" value="" placeholder="Password" required="required" maxlength="60" />
+	  </div>
+	  
+	    <div>
+	    <label for="password">Confirm Password:&nbsp;<span class="required"></span> </label>
+	    <input type="password" id="passwordtwo" name="password" value="" placeholder="Password" required="required" maxlength="60" />
+	  </div>
+	  
+	  <script>
+	  	document.getElementById("myBtn").disabled = true; 
+	  	var input1 = document.getElementById("password");
+		var input2 = document.getElementById("password2");
+		if (input1.value == input2.value) {
+	    // the passwords match
+			document.getElementById("sudmit").disabled = false;
+    	}
+	  </script>
+	  
+	  <div>
+	   		<h3>Choose a security question:</h3>
+	        <label for="question">Question:</label>
+	        <select id="question" name="question">
+		        <option value="1">What is your mother's maiden name?</option>
+	    	    <option value="2">What was your preschool's name?</option>
+	        	<option value="3">what is your favorite color?</option>
+	    	</select>
+	    </div> 
+	    <div>
+			<label for="answer" id=answerText>Answer:<span class="required"></span> </label>
+			<input type="text" id="answer" name="answer" value="" placeholder="" required="required" maxlength="60" />
+	    </div>
+	    <div>
+	   		<h3>Select your user role:</h3>
+	        <label for="role">Role:</label>
+	        <select id="role" name="role">
+		        <option value="1">Employee</option>
+	    	    <option value="2">Technician</option>
+	        	<option value="3">Administrator</option>
+	    	</select>
+	    </div> 
+	    
+	  <div>
+	     <input type="submit" value="Create User" id="submit" class="button" />
+	  </div>
+	</form>
+  </div>
+  <p><a href="/WebTicketApp/index.html">Take me back to Login.</a></p>
+</body>
+</html>

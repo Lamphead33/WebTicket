@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="loginCreate.css">
+<meta charset="ISO-8859-1">
+<title>Login</title>
+</head>
+<body>
+	<h1>Welcome to WebTicket</h1>
+	<h2>Please Login:</h2>
+	<form method="post" action="/WebTicketApp/LoginServlet">
+		<div>
+	    	<label for="username">Username:<span class="required"></span> </label>
+	    	<input type="text" id="username" name="username" value="" placeholder="" required="required" maxlength="60" />
+	  	</div>
+	  	
+	  	<div class="spacer"></div>
+	    
+	  	<div>
+	    	<label for="password">Password:&nbsp;<span class="required"></span> </label>
+	    	<input type="password" id="password" name="password" value="" placeholder="" required="required" maxlength="60" />
+	  	</div>
+		
+		<div class="spacer"></div>
+	
+	  	<div>
+	    	<input type="submit" value="Login" id="submit" class="button" />
+	  	</div>
+    </form>
+   
+
+  	<p><a href="/WebTicketApp/CreateUser.html">Don't have an account? Click here to create one.</a></p>
+  	<p id="link2"><a href="/WebTicketApp/forgotPassword.html">Forgot your password? Click here to reset.</a></p>
+    
+</body>
+</html>

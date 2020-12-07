@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+<meta charset="ISO-8859-1">
+<script src="https://kit.fontawesome.com/8f78e01f5a.js" crossorigin="anonymous"></script>
+<title>Login</title>
+</head>
+<body>
+
+ <div class="topnav">
+  <a class="active" href="/WebTicketApp/hub.html">Hub</a>
+  <a href="/WebTicketApp/help.html">Help</a>
+  <div class="dropdown">
+   <button class="dropbtn">Roles
+     <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-content">
+     <a href="#">Employee</a>
+     <a href="#">Technician</a>
+     <a href="#">Administrator</a>
+   </div>
+  </div>
+  <div class="logout-container">
+    <form action="/WebTicketApp/index.html">
+      <button class="fill" type="submit"><i class="fas fa-door-open fa-x"></i> Logout</button>
+    </form>
+  </div>
+</div>
+
+<h1>Create a new Ticket:</h1>
+<form method="post" action="/WebTicketApp/CreateTicket">
+  <div>
+    <label for="ticketName">Ticket Name: <span class="required"></span> </label>
+    <input type="text" id="ticketName" name="ticketName" value="" placeholder="Ticket Name" required="required" maxlength="120" />
+  </div>
+  
+  <div class="spacer"></div>
+    
+  <div>
+    <label for="ticketDesc">Ticket Description: <span class="required"></span> </label>
+    <input type="text" id="ticketDesc" name="ticketDesc" value="" placeholder="Ticket Description" required="required" maxlength="200" />
+  </div>
+  
+  <div class="spacer"></div>
+
+  <div>
+    <input type="submit" value="Create Ticket" id="submit" class="button" />
+  </div>
+</form>
+
+</body>
+</html>

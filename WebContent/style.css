@@ -1,0 +1,179 @@
+@charset "ISO-8859-1";
+
+
+
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  background: white;
+  color: black;
+  font-size: 1rem;
+  text-align: center;
+  cursor: pointer;
+  margin-right: 0.5rem;
+}
+
+.btn:hover {
+  opacity: 0.6;
+}
+
+.btn-xl {
+  font-size: 2rem;
+  padding: 2.5rem 4.5rem;
+}
+
+/*Keep Links Blue*/
+a:visited{
+  color:blue;
+}
+
+/*Logout Button*/
+.fill {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background-color: grey;
+  color: white;
+  font-size: 16px;
+  border: none;
+}
+
+/*NavBar Quick design*/
+.topnav {
+  background-color: lightblue;
+  overflow: hidden;
+}
+
+.topnav .logout-container {
+  float: right;
+}
+
+.topnav a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  font-size: 16px;
+}
+
+.topnav a:hover {
+  background-color: black;
+  color: white;
+}
+
+.topnav a.active {
+  background-color: black;
+  color: white;
+}
+
+/*Tabs*/
+.tabs {
+  background: grey;
+}
+
+.tabs .container {
+  justify-content: center;
+  text-align: center;
+  padding: 8rem;
+}
+
+/*Space*/
+.spacer {
+	margin-top: .2rem;
+}
+
+.spacerLg {
+	margin-top: 1rem;
+}
+
+/*Admin DropDown Test*/
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: black;
+  padding: 14px 16px;
+  background-color: lightblue;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+}
+
+/* Add a red background color to navbar links on hover */
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: Black;
+  color: white;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: lightblue;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: black;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/*TableDesgin*/
+#Vtable {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#Vtable td{
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#ticktable {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#ticktable td, #ticktable th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#ticktable tr:nth-child(even){background-color: white;}
+
+#ticktable tr:hover {background-color: grey;}
+
+#ticktable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: lightblue;
+  color: white;
+}
