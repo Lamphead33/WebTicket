@@ -68,12 +68,12 @@ public class ManageSubTickets extends HttpServlet {
 		writer.println("</div>");
 		writer.println("</div>");
 		
-		writer.println("<br><br><br><center>Managing subtickets for the following ticket- <br><b>Ticket ID: </b>" + t.getTicketID() + "<br><b>Ticket Name:</b> " + t.getTicketName() + "<br><br></center>");
-		
+		writer.println("<br><br><br><center><h1>Managing subtickets for the following ticket: </h1> <b>Ticket ID: </b>" + t.getTicketID() + "<br><b>Ticket Name:</b> " + t.getTicketName() + "<br><br></center>");
+		writer.println("<hr style=\"width:100%;text-align:left;margin-left:0\">");
 		writer.println("<h1>Create New SubTicket</h1>");
 		writer.println("<form method=\"post\" action=\"/WebTicketApp/CreateSubTicket\">\n"
 				+ "  <div>\n"
-				+ "    <label for=\"ticketName\">SubTicket Name: <span class=\"required\"></span> </label>\n"
+				+ "    <label for=\"ticketName\">SubTicket Name: &nbsp;&nbsp;<span class=\"required\"></span> </label>\n"
 				+ "    <input type=\"text\" id=\"ticketName\" name=\"ticketName\" value=\"\" placeholder=\"Ticket Name\" required=\"required\" maxlength=\"120\" />\n"
 				+ "  </div>\n"
 				+ "  \n"
@@ -93,9 +93,11 @@ public class ManageSubTickets extends HttpServlet {
 				+ "</form>");
 		
 		ArrayList<SubTicket> list = TicketDao.getAllSubTickets(t);
+		
+		writer.println("<hr style=\"width:100%;text-align:left;margin-left:0\">");		
 		writer.println("<br><h1>Existing SubTickets: </h1>");
 		writer.print("<table id=\"ticktable\">");
-		writer.println("<tr><th>SubTicket ID</th><th>SubTicket Name</th><th>SubTicket Description</th><th>Date Created</th><th>Date Resolved</th><th>Completed?</th><th>Delete SubTicket?</th><th>Mark as Resolved?</th></tr>");
+		writer.println("<tr><th>SubTicket ID</th><th>SubTicket Name</th><th>SubTicket Description</th><th>Date Created</th><th>Date Resolved</th><th>Completed?</th><th>Mark as Resolved?</th><th>Delete SubTicket?</th></tr>");
 		
 		
 		for(SubTicket st:list){
@@ -112,19 +114,30 @@ public class ManageSubTickets extends HttpServlet {
 					+st.getTicketDesc()+"</td><td>"
 					+st.getDateCreated()+"</td><td>"
 					+st.getDateResolved()+"</td><td>"
-					+st.getIsComplete()+"</td><td>"
-					+" <input type=\"submit\" value=\"Mark as Resolved\" id=\"subSub\" class=\"button\" />"
-					+"</form>" 
+					+st.getIsComplete()+"</td>");					
 					
 					/**
 					 * RESOLVE TICKET
 					 */
-					+"<form method=\"post\" action=\"/WebTicketApp/DeleteSubTicket\"" +"<tr><td>"
-					+"<input type=\"hidden\" id=\"ticketName\" name=\"ticketName\" value=\"" + st.getTicketName() +"\" />"
-					+"<input type=\"hidden\" id=\"ticketID\" name=\"ticketID\" value=\"" + st.getTicketID() +"\" />"
-					+"<input type=\"hidden\" id=\"ticketDesc\" name=\"ticketDesc\" value=\"" + st.getTicketDesc() +"\" />"
-					+"<input type=\"hidden\" id=\"ticketDateCreated\" name=\"ticketDateCreated\" value=\"" + st.getDateCreated() +"\" />"
-					+" <input type=\"submit\" value=\"Delete SubTicket\" id=\"subRes\" class=\"button\" />");
+					
+					if (st.getIsComplete() != true) {
+						writer.println("<form method=\"post\" action=\"/WebTicketApp/ResolveTicket\"" +"<tr><td>"
+							+"<input type=\"hidden\" id=\"ticketName\" name=\"ticketName\" value=\"" + st.getTicketName() +"\" />"
+							+"<input type=\"hidden\" id=\"ticketID\" name=\"ticketID\" value=\"" + st.getTicketID() +"\" />"
+							+"<input type=\"hidden\" id=\"ticketDesc\" name=\"ticketDesc\" value=\"" + st.getTicketDesc() +"\" />"
+							+"<input type=\"hidden\" id=\"ticketDateCreated\" name=\"ticketDateCreated\" value=\"" + st.getDateCreated() +"\" />"
+							+" <input type=\"submit\" value=\"Resolve Ticket\" id=\"subRes\" class=\"button\" />" );		
+					 }
+					 else {
+						 writer.println("<td> <p>Ticket Resolved</p> </td>");
+					 }
+					
+					 writer.println("<form method=\"post\" action=\"/WebTicketApp/DeleteSubTicket\"" +"<tr><td>"
+								+"<input type=\"hidden\" id=\"ticketName\" name=\"ticketName\" value=\"" + st.getTicketName() +"\" />"
+								+"<input type=\"hidden\" id=\"ticketID\" name=\"ticketID\" value=\"" + st.getTicketID() +"\" />"
+								+"<input type=\"hidden\" id=\"ticketDesc\" name=\"ticketDesc\" value=\"" + st.getTicketDesc() +"\" />"
+								+"<input type=\"hidden\" id=\"ticketDateCreated\" name=\"ticketDateCreated\" value=\"" + st.getDateCreated() +"\" />"
+								+" <input type=\"submit\" value=\"Delete SubTicket\" id=\"subRes\" class=\"button\" />");		
 
 			writer.println("</tr>");
 		}

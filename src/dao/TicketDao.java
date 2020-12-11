@@ -109,11 +109,12 @@ public class TicketDao {
 			Date dateResolved = new Date(System.currentTimeMillis());
 			Connection connection = DBConnection.getConnectionToDatabase();	
 			// Create MySql Create Query
-			String sql = "UPDATE tickets SET isComplete = 1 WHERE ticketID = " + t.getTicketID() + "; "
-					+ "UPDATE tickets SET dateResolved = \"" + dateResolved + "\" WHERE ticketID = " + t.getTicketID() + ";";
+			String sql = "UPDATE tickets SET isComplete = 1 WHERE ticketID = " + t.getTicketID() + "; ";
+			String sql2 = "UPDATE tickets SET dateResolved = \"" + dateResolved + "\" WHERE ticketID = " + t.getTicketID() + ";";
 			Statement statement = connection.createStatement();
 			// Send to DB
 			statement.execute(sql);
+			statement.execute(sql2);
 
 			// Close Connection instance
 			connection.close();
@@ -128,11 +129,12 @@ public class TicketDao {
 			Date dateResolved = new Date(System.currentTimeMillis());
 			Connection connection = DBConnection.getConnectionToDatabase();	
 			// Create MySql Create Query
-			String sql = "UPDATE subtickets SET isComplete = 1 WHERE id = " + t.getTicketID() + "; "
-					+ "UPDATE subtickets SET dateResolved = \"" + dateResolved + "\" WHERE id = " + t.getTicketID() + ";";
+			String sql = "UPDATE subtickets SET isComplete = 1 WHERE id = " + t.getTicketID() + "; ";
+			String sql2 =  "UPDATE subtickets SET dateResolved = \"" + dateResolved + "\" WHERE id = " + t.getTicketID() + ";";
 			Statement statement = connection.createStatement();
 			// Send to DB
 			statement.execute(sql);
+			statement.execute(sql2);
 
 			// Close Connection instance
 			connection.close();

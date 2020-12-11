@@ -17,8 +17,8 @@ import dao.UserDao;
 /**
  * Servlet implementation class ViewTicket
  */
-@WebServlet("/ManageUsers")
-public class ManageUsers extends HttpServlet {
+@WebServlet("/Profile")
+public class Profile extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	/**
@@ -67,7 +67,7 @@ public class ManageUsers extends HttpServlet {
 					+u.getIsEmployee()+"</td><td>"
 					+u.getIsTech()+"</td><td>"
 					+u.getIsAdmin()+"</td><td>"
-					+" <input type=\"submit\" value=\"Delete User\" id=\"submit\" class=\"button\" />"
+					+" <input type=\"submit\" value=\"Delete User\" id=\"submit\" class=\"button\" />"+"</td><td>"
 					+"</form>");
 			writer.println("</tr>");
 		}

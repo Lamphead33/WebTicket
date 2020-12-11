@@ -33,7 +33,7 @@ public class DBConnection {
 			System.out.println("MySQL JDBC Driver Registered!");
 
 			// get hold of the DriverManager
-			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/web_ticket", "root", "Tornado213!");
+			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/web_ticket", "root", "root");
 		} catch (ClassNotFoundException e) {
 			System.out.println("Where is your MySQL JDBC Driver?");
 			e.printStackTrace();
