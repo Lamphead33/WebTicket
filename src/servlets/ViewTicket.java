@@ -60,25 +60,44 @@ public class ViewTicket extends HttpServlet {
 		// log with thread
 		logTickets(list);
 		writer.print("<table id=\"ticktable\">");
-		writer.println("<tr><th>Ticket ID</th><th>Ticket Name</th><th>Ticket Description</th><th>Date Created</th><th>Date Resolved</th><th>Completed?</th><th>Delete Ticket?</th><th>Mark as Resolved?</th></tr>");
+		writer.println("<tr><th>Ticket ID</th><th>Ticket Name</th><th>Ticket Description</th><th>Date Created</th><th>Date Resolved</th><th>Completed?</th><th>Manage SubTickets</th><th>Delete Ticket?</th><th>Mark as Resolved?</th></tr>");
 		for(Ticket t:list){
-			writer.println("<form method=\"post\" action=\"/WebTicketApp/DeleteTicket\""
+			writer.println("<form method=\"post\" action=\"/WebTicketApp/ManageSubTickets\""
 					+"<tr><td>"
 					// Hidden fields to grab ticket values
 					+"<input type=\"hidden\" id=\"ticketName\" name=\"ticketName\" value=\"" + t.getTicketName() +"\" />"
 					+"<input type=\"hidden\" id=\"ticketID\" name=\"ticketID\" value=\"" + t.getTicketID() +"\" />"
 					+"<input type=\"hidden\" id=\"ticketDesc\" name=\"ticketDesc\" value=\"" + t.getTicketDesc() +"\" />"
-					+"<input type=\"hidden\" id=\"ticketDateCreated\" name=\"ticketDateCreated\" value=\"" + t.getTicketDesc() +"\" />"
+					+"<input type=\"hidden\" id=\"ticketDateCreated\" name=\"ticketDateCreated\" value=\"" + t.getDateCreated() +"\" />"
 					+t.getTicketID()+"</td><td>"
 					+t.getTicketName()+"</td><td>"
 					+t.getTicketDesc()+"</td><td>"
 					+t.getDateCreated()+"</td><td>"
 					+t.getDateResolved()+"</td><td>"
 					+t.getIsComplete()+"</td><td>"
-					+" <input type=\"submit\" value=\"Delete Ticket\" id=\"submit\" class=\"button\" />"
+					+" <input type=\"submit\" value=\"Manage Subtickets\" id=\"subSub\" class=\"button\" />"
 					+"</form>" 
+					
+					/**
+					 * RESOLVE TICKET
+					 */
 					+"<form method=\"post\" action=\"/WebTicketApp/ResolveTicket\"" +"<tr><td>"
-					+" <input type=\"submit\" value=\"Resolve Ticket\" id=\"submit\" class=\"button\" />"
+					+"<input type=\"hidden\" id=\"ticketName\" name=\"ticketName\" value=\"" + t.getTicketName() +"\" />"
+					+"<input type=\"hidden\" id=\"ticketID\" name=\"ticketID\" value=\"" + t.getTicketID() +"\" />"
+					+"<input type=\"hidden\" id=\"ticketDesc\" name=\"ticketDesc\" value=\"" + t.getTicketDesc() +"\" />"
+					+"<input type=\"hidden\" id=\"ticketDateCreated\" name=\"ticketDateCreated\" value=\"" + t.getDateCreated() +"\" />"
+					+" <input type=\"submit\" value=\"Resolve Ticket\" id=\"subRes\" class=\"button\" />"
+					
+					/**
+					 * DELETE TICKET
+					 */
+					+"</form>" 
+					+"<form method=\"post\" action=\"/WebTicketApp/DeleteTicket\"" +"<tr><td>"
+					+"<input type=\"hidden\" id=\"ticketName\" name=\"ticketName\" value=\"" + t.getTicketName() +"\" />"
+					+"<input type=\"hidden\" id=\"ticketID\" name=\"ticketID\" value=\"" + t.getTicketID() +"\" />"
+					+"<input type=\"hidden\" id=\"ticketDesc\" name=\"ticketDesc\" value=\"" + t.getTicketDesc() +"\" />"
+					+"<input type=\"hidden\" id=\"ticketDateCreated\" name=\"ticketDateCreated\" value=\"" + t.getDateCreated() +"\" />"
+					+" <input type=\"submit\" value=\"Delete Ticket\" id=\"subDel\" class=\"button\" />"
 					+"</form>" );
 
 			writer.println("</tr>");

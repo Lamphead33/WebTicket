@@ -3,6 +3,7 @@ package bean;
 public class SubTicket implements MasterTicket {
 	
 	private int ticketID;
+	private int parentID;
 	private String ticketName;
 	private String ticketDesc;
 	private String dateCreated;
@@ -12,6 +13,10 @@ public class SubTicket implements MasterTicket {
 	@Override
 	public int getTicketID() {
 		return ticketID;
+	}
+	
+	public int getParentID() {
+		return parentID;
 	}
 
 	@Override
@@ -42,6 +47,10 @@ public class SubTicket implements MasterTicket {
 	@Override
 	public void setTicketID(int ticketID) {
 		this.ticketID = ticketID;
+	}
+	
+	public void setParentID(int parentID) {
+		this.parentID = parentID;
 	}
 
 	@Override
